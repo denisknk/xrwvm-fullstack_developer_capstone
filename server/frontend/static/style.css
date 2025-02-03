@@ -124,3 +124,65 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+
+/* Contact Page Styling */
+.contact-container {
+    width: 80%;
+    margin: auto;
+    padding: 2%;
+    text-align: center;
+  }
+  
+  .contact-details {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+  }
+  
+  .contact-form {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-form label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .contact-form input, 
+  .contact-form textarea {
+    width: 80%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .contact-form button {
+    margin-top: 15px;
+    background-color: darkturquoise;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .contact-form button:hover {
+    background-color: #008c9e;
+  }
+  
+  .map-container {
+    margin-top: 20px;
+    text-align: center;
+  }

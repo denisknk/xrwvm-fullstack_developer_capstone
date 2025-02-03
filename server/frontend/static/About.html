@@ -1,11 +1,12 @@
 <html>
 <head>
-  <!-- Link the style sheet here -->
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkturquoise; height: 1in;">
     <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
+      <h2 style="padding-right: 5%;">Best Cars Dealership</h2>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,45 +25,50 @@
       </div>
     </div>
   </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
+
+  <div class="card" style="margin: auto; padding: 2%; text-align: center;">
+    <div class="banner" name="about-header">
+      <h1>About Us</h1>
+      <p>Welcome to <strong>Best Cars Dealership</strong>, your trusted destination for high-quality vehicles.  
+         With years of experience in the automobile industry, we specialize in both domestic and imported cars,  
+         offering competitive prices and excellent customer service.</p>
+    </div>
+
+    <h2>Meet Our Team</h2>
+    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+      
+      <div class="card" style="width: 20%; text-align: center; padding: 1%;">
+        <img class="card-img-top" src="/static/john_doe.jpg" alt="John Doe">
         <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
+          <h3 class="title">John Doe</h3>
+          <p><strong>Founder & CEO</strong></p>
+          <p class="card-text">With over 20 years in the automotive industry, John is passionate about helping customers find the perfect car.</p>
+          <p><a href="mailto:john@example.com">john@example.com</a></p>
         </div>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
+      <div class="card" style="width: 20%; text-align: center; padding: 1%;">
+        <img class="card-img-top" src="/static/jane_smith.jpg" alt="Jane Smith">
         <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
+          <h3 class="title">Jane Smith</h3>
+          <p><strong>Sales Manager</strong></p>
+          <p class="card-text">Jane leads our sales team with a focus on excellent customer service and tailored car recommendations.</p>
+          <p><a href="mailto:jane@example.com">jane@example.com</a></p>
         </div>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
+      <div class="card" style="width: 20%; text-align: center; padding: 1%;">
+        <img class="card-img-top" src="/static/mike_johnson.jpg" alt="Mike Johnson">
         <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
+          <h3 class="title">Mike Johnson</h3>
+          <p><strong>Lead Mechanic</strong></p>
+          <p class="card-text">Mike ensures all vehicles are in top condition before they hit the road, bringing 15 years of experience in car maintenance.</p>
+          <p><a href="mailto:mike@example.com">mike@example.com</a></p>
         </div>
       </div>
-    </div>
-    </div>
-    </div>
-    
-</div>
 
+    </div>
+  </div>
+
+</body>
 </html>
