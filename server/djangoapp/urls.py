@@ -5,6 +5,7 @@ app_name = 'djangoapp'  # Namespace for this app
 
 urlpatterns = [
     path('login/', views.login_user, name='login'),  # API for user login
+    path('get_cars/', view=views.get_cars, name ='getcars'),
     path('register/', views.registration, name='register'),
     path('logout/', views.logout_user, name='logout'),
 ]

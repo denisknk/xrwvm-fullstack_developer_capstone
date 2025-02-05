@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from .models import CarMake, CarModel
+from .populate import initiate
 from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -7,6 +9,18 @@ from datetime import datetime
 import logging
 import json
 from django.views.decorators.csrf import csrf_exempt
+
+def get_cars(request):
+    count = CarMake.objects.filter().count()
+    print(count)
+    if(count == 0):
+        print("Database is empty. Running initiate() to populate data.")
+        initiate()
+    car_models = CarModel.objects.select_related('car_make')
+    cars = []
+    for car_model in car_models:
+        cars.append({"CarModel": car_model.name, "CarMake": car_model.car_make.name})
+    return JsonResponse({"CarModels":cars})
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
