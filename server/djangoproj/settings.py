@@ -28,8 +28,21 @@ SECRET_KEY =\
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://deniskonw-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai', 'https://deniskonw-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.a', 'https://172.22.182.147:8888', 'localhost','https://deniskonw-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai', 'https://deniskonw-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai/', 'http://127.0.0.1:8000']
-CSRF_TRUSTED_ORIGINS = ['https://deniskonw-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai', 'https://deniskonw-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.a', 'https://172.22.182.147:8888', 'https://deniskonw-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai', 'https://deniskonw-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai/', 'http://127.0.0.1:8000']
+ALLOWED_HOSTS = [
+    'https://deniskonw-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
+    'https://deniskonw-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.a',
+    'https://172.22.182.147:8888',
+    'localhost',
+    'https://deniskonw-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
+    'https://deniskonw-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai/',
+    'http://127.0.0.1:8000']
+CSRF_TRUSTED_ORIGINS = [
+    'https://deniskonw-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
+    'https://deniskonw-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.a',
+    'https://172.22.182.147:8888',
+    'https://deniskonw-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
+    'https://deniskonw-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai/',
+    'http://127.0.0.1:8000']
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
@@ -144,4 +157,3 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/build'),
     os.path.join(BASE_DIR, 'frontend/build/static'),
 ]
-
