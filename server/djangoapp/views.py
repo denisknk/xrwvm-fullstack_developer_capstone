@@ -121,7 +121,6 @@ def registration(request):
 
     return JsonResponse({"status": "Failed: Only POST requests are allowed"})
 
-
 # Update the `get_dealerships` render list of dealerships all by default,
 # particular state if state is passed
 
