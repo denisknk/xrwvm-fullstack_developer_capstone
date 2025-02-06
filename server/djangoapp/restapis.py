@@ -2,6 +2,7 @@
 # import requests
 import os
 from dotenv import load_dotenv
+import requests
 
 load_dotenv()
 
@@ -12,22 +13,27 @@ sentiment_analyzer_url = os.getenv(
     default="http://localhost:5050/")
 
 # def get_request(endpoint, **kwargs):
+
+import requests
+
+import requests
+
 def get_request(endpoint, **kwargs):
     params = ""
-    if(kwargs):
-        for key,value in kwargs.items():
-            params=params+key+"="+value+"&"
+    if kwargs:
+        for key, value in kwargs.items():
+            params += f"{key}={value}&"
 
-    request_url = backend_url+endpoint+"?"+params
+    request_url = backend_url + endpoint + "?" + params
+    print(f"GET request to URL: {request_url}")  # Log the complete URL being requested
 
-    print("GET from {} ".format(request_url))
     try:
-        # Call get method of requests library with URL and parameters
         response = requests.get(request_url)
+        print(f"Full API Response: {response.text}")  # Debugging print for raw response
         return response.json()
-    except:
-        # If any error occurs
-        print("Network exception occurred")
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {e}")
+        return None
 
 # def analyze_review_sentiments(text):
 def analyze_review_sentiments(text):

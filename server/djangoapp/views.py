@@ -104,29 +104,62 @@ def get_dealerships(request, state="All"):
         endpoint = "/fetchDealers"
     else:
         endpoint = "/fetchDealers/"+state
+
+    print(f"Fetching data from: {endpoint}")
     dealerships = get_request(endpoint)
+    
+    print(f"Dealerships received: {dealerships}")  
     return JsonResponse({"status":200,"dealers":dealerships})
 
 def get_dealer_reviews(request, dealer_id):
-    # if dealer id has been provided
-    if(dealer_id):
-        endpoint = "/fetchReviews/dealer/"+str(dealer_id)
+    if dealer_id:
+        endpoint = "/fetchReviews/dealer/" + str(dealer_id)
         reviews = get_request(endpoint)
+        # reviews = [
+        #     {"review": "Great experience, highly recommend!"},
+        #     {"review": "Terrible service, would not return."},
+        # ]
+
+        print(f"TEST API Response for dealer {dealer_id}: {reviews}")  # Debugging print
+
+        if reviews is None:  # API request failed
+            return JsonResponse({"status": 500, "message": "Failed to fetch reviews"})
+
+        if not reviews:  # Empty list (no reviews found)
+            return JsonResponse({"status": 200, "reviews": [], "message": "No reviews available for this dealer."})
+
+        valid_reviews = []
         for review_detail in reviews:
-            response = analyze_review_sentiments(review_detail['review'])
-            print(response)
-            review_detail['sentiment'] = response['sentiment']
-        return JsonResponse({"status":200,"reviews":reviews})
-    else:
-        return JsonResponse({"status":400,"message":"Bad Request"})
+            if isinstance(review_detail, dict):  # Ensure it's a dictionary
+                print(f"Processing review: {review_detail.get('review', '')}")  # Debugging print
+                response = analyze_review_sentiments(review_detail.get('review', ''))
+                print(f"Sentiment response: {response}")  # Debugging print
+
+                # Check if response is not None before accessing it
+                if response is not None:
+                    review_detail['sentiment'] = response.get('sentiment', 'unknown')
+                else:
+                    review_detail['sentiment'] = 'unknown'  # Set a default value if the response is None
+                
+                valid_reviews.append(review_detail)
+
+        return JsonResponse({"status": 200, "reviews": valid_reviews})
+
+    return JsonResponse({"status": 400, "message": "Bad Request"})
 
 def get_dealer_details(request, dealer_id):
     if(dealer_id):
-        endpoint = "/fetchDealer/"+str(dealer_id)
+        endpoint = "/fetchDealer/" + str(dealer_id)
         dealership = get_request(endpoint)
-        return JsonResponse({"status":200,"dealer":dealership})
+
+        print(f"API Response for dealer {dealer_id}: {dealership}")  # Log the response
+
+        if not dealership:  # Handle case when no data is returned
+            return JsonResponse({"status": 404, "message": "Dealer not found"})
+        
+        return JsonResponse({"status": 200, "dealer": dealership})
     else:
-        return JsonResponse({"status":400,"message":"Bad Request"})
+        return JsonResponse({"status": 400, "message": "Bad Request"})
 
 def add_review(request):
     if(request.user.is_anonymous == False):
